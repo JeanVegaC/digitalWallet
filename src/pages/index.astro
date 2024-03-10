@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+const isAuth = true;
+if(isAuth) return Astro.redirect('/home');
+else return Astro.redirect('/login');
+		
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+	</main>
+</Layout>
+
+<style is:inline>
+	
+</style>
