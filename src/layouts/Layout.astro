@@ -1,4 +1,9 @@
 ---
+import { Image } from "astro:assets";
+import semiCircle from '../assets/svg/semiCircle.svg';
+import pentagon from '../assets/svg/pentagon.svg';
+import asterik from '../assets/svg/asterik.svg';
+import waves from '../assets/svg/waves.svg';
 interface Props {
 	title: string;
 }
@@ -18,7 +23,15 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<main class="mainLayout">
-			<slot />
+			<div class="figures">
+				<Image class={'figure semicircle'} src={semiCircle} alt={'semicircle'} loading={'lazy'}></Image>
+				<Image class={'figure pentagon'} src={pentagon} alt={'pentagon'} loading={'lazy'}></Image>
+				<Image class={'figure asterik'} src={asterik} alt={'asterik'} loading={'lazy'}></Image>
+				<Image class={'figure waves'} src={waves} alt={'waves'} loading={'lazy'}></Image>
+			</div>
+			<section>
+				<slot />
+			</section>
 		</main>
 	</body>
 </html>
@@ -28,9 +41,54 @@ const { title } = Astro.props;
 		padding: 0;
 	}
 	.mainLayout{
+		display: flex;
 		height: 100vh;
 		width: 100vw;
-		background: rgb(33,33,62);
-		background-color: rgb(35, 36, 60);
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(97deg, rgba(33,33,62,1) 28%, rgb(47, 47, 75) 92%);
+	}
+
+	.figures {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        overflow: hidden
+    }
+
+    .figure {
+        position: absolute;
+    }
+
+    .semicircle {
+        left: 15px;
+        top: 150px;
+        height: 150px;
+    }
+
+    .pentagon {
+        right: 470px;   
+        bottom: 150px;
+        height: 200px;
+    }
+
+    .asterik {
+        left: 255px;
+        top: 700px;
+        height: 250px;
+    }
+
+    .waves {
+        right: 0px;
+        bottom: 530px;
+        height: 300px;
+    }
+
+	.mainLayout section {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>

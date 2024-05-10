@@ -1,41 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import semiCircle from '../assets/svg/semiCircle.svg';
-import pentagon from '../assets/svg/pentagon.svg';
-import asterik from '../assets/svg/asterik.svg';
-import waves from '../assets/svg/waves.svg';
+import LoginForm from './login.tsx';
 
-console.log('You are in login');
+interface LoginInterface {
+    user: string;
+    password: string;
+    setUser: (user: string) => void;
+    setPassword: (password: string) => void;
+}
+
 ---
 <Layout title="Login">
-    <section class="container">
-        
-        <div class="modal">
-            <div class="figures">
-                <Image class={'figure semicircle'} src={semiCircle} alt={'semicircle'} loading={'lazy'}></Image>
-                <Image class={'figure pentagon'} src={pentagon} alt={'pentagon'} loading={'lazy'}></Image>
-                <Image class={'figure asterik'} src={asterik} alt={'asterik'} loading={'lazy'}></Image>
-                <Image class={'figure waves'} src={waves} alt={'waves'} loading={'lazy'}></Image>
-            </div>
-            <form class="form"> 
-                <input placeholder="Email addreess">
-                <input placeholder="passwod">
-                <button>LOG IN</button>
-            </form>
-        </div>
-    </section>
+    <LoginForm></LoginForm>    
 </Layout>
 
 <style>
-    .container {
-        display: flex;
-        height: 100%;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-
     .modal {
         display: flex;
         height: 80%;
@@ -43,11 +22,6 @@ console.log('You are in login');
         position: relative;
         justify-content: center;
         align-items: center;
-        border-radius: 1rem;
-        background: linear-gradient(97deg, rgba(33,33,62,1) 28%, rgb(47, 47, 75) 92%);
-        box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.11);
-        -webkit-box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.1);
-        -moz-box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.1);
     }
 
     .form {
@@ -65,35 +39,11 @@ console.log('You are in login');
         -webkit-box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.31);
         -moz-box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.11);
     }
-    /* .modal {
-        display: flex;
-        height: 80%;
-        width: 90%;
-        justify-content: center;
-        align-items: center;
-        border-radius: 1rem;
-        background-color: rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(3px);
-        box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.41);
-        -webkit-box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.21);
-        -moz-box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.11);
+
+    .form h2 {
+        font-family: sans-serif;
+        color: #fff;
     }
-
-    .form {
-        display: flex;
-        height: 40%;
-        width: 30%;
-        border-radius: 1rem;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        background-color: rgb(35, 36, 60);
-        box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.11);
-        -webkit-box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.11);
-        -moz-box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.11);
-    } */
-
     .form label {
         font-family: sans-serif;
         color: #fff;
@@ -106,13 +56,18 @@ console.log('You are in login');
         border: none;
         background: none;
         font-size: inherit;
+        color: #fff;
         background-color: rgb(57, 57, 80);
         padding: 5px 15px;
         border-radius: .5rem;
     }
 
     .form input::placeholder {
-        font-size: 12px;
+        font-size: 14px;
+    }
+
+    .form input:focus {
+        outline: none;
     }
 
     .form button {
@@ -123,40 +78,5 @@ console.log('You are in login');
         color: #000;
         font-weight: bolder;
     }
-
-    .figures {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-    }
-
-    .figure {
-        position: absolute;
-    }
-
-    .semicircle {
-        left: 15px;
-        top: 50px;
-        height: 150px;
-    }
-
-    .pentagon {
-        right: 350px;
-        bottom: 150px;
-        height: 200px;
-    }
-
-    .asterik {
-        left: 155px;
-        top: 500px;
-        height: 150px;
-    }
-
-    .waves {
-        right: 0px;
-        bottom: 530px;
-        height: 300px;
-    }
-
     
 </style>
