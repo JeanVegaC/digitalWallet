@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-export default function LoginForm() {
+import React, { useEffect, useState } from "react";
 
+export default function LoginForm() {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
 
@@ -9,20 +9,13 @@ export default function LoginForm() {
     }, [user]);
 
     return (
-        // <form className="flex h-2/5 w-1/3 rounded-2xl flex-col items-center justify-center gap-4 " style={styles.form}> 
-        //     <h2 className="font-sans text-white">Login</h2>
-        //     <input className="text-white h-8 w-60 m-0 border-0 bg-inherit text-xs py-1 px-3 rounded-sm placeholder:text-xs focus:outline-none" style={styles.input} placeholder="Email addreess" onChange={(e: string)=> setUser(e)} value={user}></input>
-        //     <input className="text-white h-8 w-60 m-0 border-0 bg-inherit text-xs py-1 px-3 rounded-sm placeholder:text-xs focus:outline-none" style={styles.input} placeholder="passwod"></input>
-        //     <button className="bg-white rounded-2xl h-10 w-36 text-black font-bold" data-confetti-button>LOG IN</button>
-        // </form>
         <form style={styles.form}> 
             <h2 className="text-purple-light font-sans text-3xl">Welcome to <label style={{color: '#fff'}}>Login</label></h2>
-            <input className="font-thin placeholder:text-lg focus:outline-none" style={styles.input} placeholder="Email addreess" onChange={(e: string)=> setUser(e)} value={user}></input>
-            <input type="password" className="font-thin placeholder:text-lg focus:outline-none" style={styles.input} placeholder="passwod"></input>
+            <input className="font-thin focus:outline-none" style={styles.input} placeholder="Email address" onChange={(e)=> setUser(e.target.value)} value={user}></input>
+            <input type="password" className="font-thin focus:outline-none" style={styles.input} placeholder="Password" onChange={(e)=> setPassword(e.target.value)} value={password}></input>
             <button style={styles.button}>LOG IN</button>
         </form>
-    )
-    
+    );
 }
 
 const styles = {
@@ -41,16 +34,17 @@ const styles = {
     },
 
     input: {
-        height: '45px',
+        height: '40px',
         width: '280px',
         margin: '0',
         border: 'none',
         background: 'none',
-        fontSize: '1.3rem',
+        fontSize: '1rem',
         color: '#fff',
         backgroundColor: 'rgb(57, 57, 80)',
         padding: '10px 15px',
         borderRadius: '.5rem',
+        verticalAlign: 'middle',
     },
 
     button: {
@@ -61,6 +55,7 @@ const styles = {
         color: '#000',
         fontFamily: 'sans-serif',
         fontWeight: 'bold',
+        fontSize: '1rem'
     }
 
 }

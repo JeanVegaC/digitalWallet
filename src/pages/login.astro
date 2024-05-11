@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LoginForm from './login.tsx';
+import LoginForm from './login.jsx';
 
 interface LoginInterface {
     user: string;
@@ -11,7 +11,7 @@ interface LoginInterface {
 
 ---
 <Layout title="Login">
-    <LoginForm></LoginForm>    
+    <LoginForm client:load></LoginForm>    
 </Layout>
 
 <style>
